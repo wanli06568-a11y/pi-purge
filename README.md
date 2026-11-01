@@ -1,6 +1,6 @@
 # pi-purge
 
-[English](README.md) | [中文](README.zh-CN.md)
+[English](README.md) | [中文](README.zh-CN.md) | [日本語](README.ja.md)
 
 A [pi](https://github.com/earendil-works/pi-coding-agent) extension for system-prompt experiments: `/purge` switches which system prompt a session runs with — pi's stock prompt, a trimmed variant, or only a persona prompt.
 
@@ -11,7 +11,7 @@ With it off, nothing changes — no prompt rewrite, no disk reads. pi behaves ex
 ## Install
 
 ```bash
-FULL:pi install git:github.com/ZiChuanLan/pi-purge@ffafeb9
+pi install git:github.com/ZiChuanLan/pi-purge@ffafeb9
 pi install npm:pi-purge
 ```
 
@@ -50,7 +50,7 @@ That is all. A short example prompt ships inside the package, so a fresh install
 | `replace` | Your prompt, then pi's prompt with its built-in assistant identity line and bundled documentation section removed. Tool list, guidelines, and project context stay. | You want to measure the effect of the harness framing without losing tool context. |
 | `strict` | Your prompt plus `Current working directory: …` only. | You want to isolate your instructions as a single variable. This is the default. |
 
-`replace` finds both sections by exact wording. If a pi update rewords them, it leaves the prompt intact rather than cutting the wrong text — `/purge status` then reports `身份段 未匹配` (identity line not found) and behavior falls back to `append`. `strict` does no matching at all, so it behaves the same across pi versions.
+`replace` finds both sections by exact wording. If a pi update rewords them, it leaves the prompt intact rather than cutting the wrong text — `/purge status` then reports `身份段 未匹配` (identity line not found) and behavior falls back to `append`. `strict` does no matching at all, so it behaves the same across pi versions. On omp, which supplies a prompt block array without these pi-specific anchors, `replace` also leaves the host prompt intact; use `strict` when the harness framing must be gone.
 
 Tool schemas are passed through the API `tools` parameter rather than the system prompt, so tools keep working in every mode, including `strict`.
 
@@ -133,6 +133,13 @@ Also prohibited: unauthorized penetration or attack against public or private in
 **Attribution required.** Anyone reusing this project's name, approach, code, or prompt must credit the author and link this repository. Failure to attribute will be pursued legally.
 
 ## License
+
+---
+
+提示词仓库
+https://github.com/ZiChuanLan/some-magic
+
+---
 
 MIT
 

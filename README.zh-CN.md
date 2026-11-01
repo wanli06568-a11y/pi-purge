@@ -1,6 +1,6 @@
 # pi-purge
 
-[English](README.md) | 中文
+[English](README.md) | 中文 | [日本語](README.ja.md)
 
 [pi](https://github.com/earendil-works/pi-coding-agent) 的系统提示词实验扩展：`/purge` 用来切换一轮会话到底带哪套系统提示词 —— pi 自带的、精简过的，或者只发一份人设提示词。
 
@@ -50,7 +50,7 @@
 | `replace` | 你的提示词 + 去掉「助手身份句」和「内置文档段」的 pi 提示词，工具列表 / Guidelines / 项目上下文保留 | 想测量宿主框架措辞的影响，又不想丢工具上下文 |
 | `strict` | 你的提示词 + 仅 `Current working directory: …` | 想把人设/指令当成唯一变量隔离出来。这是默认模式 |
 
-`replace` 依赖固定文案定位那两段。pi 升级改措辞时它会原样保留提示词（退化成 `append`），而不是切错位置 —— `/purge status` 会显示 `身份段 未匹配`。`strict` 不做任何匹配，跨 pi 版本行为一致。
+`replace` 依赖固定文案定位那两段。pi 升级改措辞时它会原样保留提示词（退化成 `append`），而不是切错位置 —— `/purge status` 会显示 `身份段 未匹配`。`strict` 不做任何匹配，跨 pi 版本行为一致。omp 传的是提示词块数组，没有这些 pi 专用锚点，`replace` 同样会退化成 `append`；要彻底丢掉宿主框架用 `strict`。
 
 工具 schema 走 API 的 `tools` 参数，不依赖系统提示词，所以三种模式下工具都正常可用，包括 `strict`。
 
@@ -137,6 +137,12 @@ npm test   # 两个套件，均跑在临时 agent 目录里，并断言全程没
 **第三方独立性声明**：本项目属于完全独立的开源安全评测研究项目，与 pi 官方或其关联主体无任何隶属、商业合作、授权或官方背书关系。文中「官方」仅指评测对象为使用者本机安装的官方 pi 软件包，不代表其官方开发、认可或担保本插件。
 
 **必须署名**：借用本项目的名称、思路、代码或提示词，必须署名并标明本仓库。不署名将依法追究责任。
+---
+
+提示词仓库
+https://github.com/ZiChuanLan/some-magic
+
+---
 
 ## 许可
 
